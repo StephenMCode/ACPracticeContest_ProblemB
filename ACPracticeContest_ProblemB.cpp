@@ -38,6 +38,69 @@ int main() {
 
         char A = 'A', B = 'B', C = 'C', D = 'D', E = 'E';
 
+        // Step 1
+        char L1a, L1b;
+        if (compareBalls(A, B)) {
+            L1a = A; L1b = B;
+        } else {
+            L1a = B; L1b = A;
+        }
+
+        // Step 2
+        char L2a, L2b;
+        if (compareBalls(C, D)) {
+            L2a = C; L2b = D;
+        } else {
+            L2a = D; L2b = C;
+        }
+
+        // Step 3
+        char M1, M2;
+        if (compareBalls(L1a, L2a)) {
+            M1 = L1a; M2 = L2a;
+        } else {
+            M1 = L2a; M2 = L1a;
+        }
+
+        // Step 4
+        char M3, M4;
+        if (compareBalls(L1b, L2b)) {
+            M3 = L1b; M4 = L2b;
+        } else {
+            M3 = L2b; M4 = L1b;
+        }
+
+        // Step 5
+        char X, Y;
+        if (compareBalls(M2, M3)) {
+            X = M2; Y = M3;
+        } else {
+            X = M3; Y = M2;
+        }
+        
+        // Step 6
+        if (compareBalls(E, Y)) {
+            if (compareBalls(E, X)) {
+                // Step 7a
+                if (compareBalls(E, M1)) {
+                    cout << "! " << E << M1 << X << Y << M4 << endl;
+                } else {
+                    cout << "! " << M1 << E << X << Y << M4 << endl;
+                }
+            } else {
+                cout << "! " << M1 << X << E << Y << M4 << endl;
+            }
+        } else {
+            // Step 7b
+            if (compareBalls(E, M4)) {
+                cout << "! " << M1 << X << Y << E << M4 << endl;
+            } else {
+                cout << "! " << M1 << X << Y << M4 << E << endl;
+            }
+        }
+
+        cout.flush();
+    } else {
         
     }
 
