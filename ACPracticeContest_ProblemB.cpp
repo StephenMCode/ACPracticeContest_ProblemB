@@ -2,6 +2,18 @@
 
 using namespace std;
 
+// compareBalls(c1, c2) prints a query to compare ball c1 against c2.
+// The judge responds with '<' if c2 is heavier (meaning c1 < c2),
+// or '>' otherwise (meaning c1 > c2).
+// We return 'true' if c1 < c2 (judge returns '<'), and 'false' otherwise.
+bool compareBalls(char c1, char c2) {
+    cout << "? " << c1 << " " << c2 << endl;;
+    cout.flush();
+    char resp;
+    cin >> resp; // '<' or '>'
+    return (resp == '<');
+}
+
 int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
@@ -23,6 +35,10 @@ int main() {
         //  6-7) Insert E in exactly 2 comparisons.
         //
         // This is guaranteed to sort 5 distinct items with at most 7 comparisons.
+
+        char A = 'A', B = 'B', C = 'C', D = 'D', E = 'E';
+
+        
     }
 
     return 0;
