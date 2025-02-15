@@ -128,6 +128,14 @@ int main() {
 
             sortedBalls.insert(sortedBalls.begin() + left, c);
         }
+
+        // Output final sorted order
+        cout << "! ";
+        for (char c : sortedBalls) {
+            cout << c;
+        }
+        cout << endl;
+        cout.flush();
     }
 
     return 0;
