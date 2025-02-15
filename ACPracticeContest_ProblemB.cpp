@@ -1,4 +1,6 @@
 #include <iostream>
+#include <vector>
+#include <string>
 
 using namespace std;
 
@@ -101,7 +103,31 @@ int main() {
 
         cout.flush();
     } else {
-        
+        // =======================================================
+        // Insertion sort with binary search for N=26
+        // =======================================================
+        // This uses ~ O(N log N) comparisons (at most ~78 for N=26),
+        // which is under the limit of 100 queries.
+
+        vector<char> sortedBalls;
+        sortedBalls.reserve(N);
+
+        for (int i = 0; i < N; i++) {
+            char c = static_cast<char>('A' + i);
+
+            int left = 0, right = (int)sortedBalls.size();
+            while (left < right) {
+                int mid = (left + right) / 2;
+                
+                if (compareBalls(c, sortedBalls[mid])) {
+                    right = mid;
+                } else {
+                    left = mid + 1;
+                }
+            }
+
+            sortedBalls.insert(sortedBalls.begin() + left, c);
+        }
     }
 
     return 0;
